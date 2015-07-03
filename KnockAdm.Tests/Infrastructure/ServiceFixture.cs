@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public sealed class ServiceFixture : IDisposable
     {

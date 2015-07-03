@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Migrations;
 
-namespace LucAdm.DataGen
+namespace KnockAdm.DataGen
 {
     internal static class Program
     {

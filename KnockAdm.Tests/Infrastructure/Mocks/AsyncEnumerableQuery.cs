@@ -3,7 +3,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     /// <summary>
     /// Based on following gist: https://gist.github.com/taschmidt/9663503

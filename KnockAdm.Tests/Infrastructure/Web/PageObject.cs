@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public abstract class PageObject
     {

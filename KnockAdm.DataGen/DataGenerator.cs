@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace LucAdm.DataGen
+namespace KnockAdm.DataGen
 {
     public class DataGenerator : GeneratorBase
     {

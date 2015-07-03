@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public class ValidationTests
     {

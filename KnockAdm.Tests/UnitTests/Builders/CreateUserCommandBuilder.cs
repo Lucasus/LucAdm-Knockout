@@ -1,4 +1,4 @@
-﻿namespace LucAdm.Tests
+﻿namespace KnockAdm.Tests
 {
     public class CreateUserCommandBuilder : ObjectBuilder<CreateUserCommand>
     {

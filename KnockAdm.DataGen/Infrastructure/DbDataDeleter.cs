@@ -7,7 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 
-namespace LucAdm.DataGen
+namespace KnockAdm.DataGen
 {
     public class DbDataDeleter
     {

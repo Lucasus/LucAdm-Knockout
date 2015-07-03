@@ -3,7 +3,7 @@ using OpenQA.Selenium.Support.Events;
 using System;
 using System.Drawing.Imaging;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public sealed class SeleniumFixture : IDisposable
     {

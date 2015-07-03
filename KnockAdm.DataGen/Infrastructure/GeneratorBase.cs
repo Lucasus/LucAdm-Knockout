@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 
-namespace LucAdm.DataGen
+namespace KnockAdm.DataGen
 {
     public abstract class GeneratorBase
     {

@@ -1,4 +1,4 @@
-﻿namespace LucAdm.DataGen
+﻿namespace KnockAdm.DataGen
 {
     public enum EnvironmentEnum
     {

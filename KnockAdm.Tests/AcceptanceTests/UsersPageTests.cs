@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
-using LucAdm.DataGen;
+using KnockAdm.DataGen;
 using Xunit;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public class UsersPageTests : IClassFixture<SeleniumFixture>
     {

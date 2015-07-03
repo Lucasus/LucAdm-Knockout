@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Migrations;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public sealed class UsesDbFixture : IDisposable
     {

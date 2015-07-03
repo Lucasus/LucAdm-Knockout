@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public class CreateUserTests : IClassFixture<ServiceFixture>
     {

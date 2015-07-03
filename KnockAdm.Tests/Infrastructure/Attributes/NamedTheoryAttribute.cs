@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using Xunit;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public sealed class NamedTheoryAttribute : TheoryAttribute
     {

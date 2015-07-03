@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public static class Some
     {

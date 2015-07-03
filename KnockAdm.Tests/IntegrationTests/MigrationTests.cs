@@ -1,8 +1,8 @@
-﻿using LucAdm.DataGen;
+﻿using KnockAdm.DataGen;
 using System.Data.Entity.Migrations;
 using Xunit;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public class MigrationTests : IClassFixture<UsesDbFixture>
     {

@@ -1,7 +1,7 @@
 ﻿using NSubstitute;
 using System.Collections.Generic;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public class PersistenceContextBuilder : ObjectBuilder<PersistenceContext>
     {

@@ -1,6 +1,6 @@
-﻿using LucAdm.DataGen;
+﻿using KnockAdm.DataGen;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public static class ContextExtensions
     {

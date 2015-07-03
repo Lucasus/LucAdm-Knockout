@@ -149,16 +149,6 @@
     <Compile Include="UnitTests\CreateUserTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LucAdm.DataGen\LucAdm.DataGen.csproj">
-      <Project>{00b506ad-e85b-432e-880b-e48e83b3839b}</Project>
-      <Name>LucAdm.DataGen</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LucAdm\LucAdm.csproj">
-      <Project>{9b065823-ccdf-406a-8f56-91e06aecf217}</Project>
-      <Name>LucAdm</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config">
       <TransformOnBuild>true</TransformOnBuild>
     </None>
@@ -174,7 +164,9 @@
       <DependentUpon>App.config</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\SlowCheetah\SlowCheetah.Transforms.targets" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +174,16 @@
       <Link>chromedriver.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KnockAdm.DataGen\KnockAdm.DataGen.csproj">
+      <Project>{00b506ad-e85b-432e-880b-e48e83b3839b}</Project>
+      <Name>KnockAdm.DataGen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KnockAdm\KnockAdm.csproj">
+      <Project>{9b065823-ccdf-406a-8f56-91e06aecf217}</Project>
+      <Name>KnockAdm</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

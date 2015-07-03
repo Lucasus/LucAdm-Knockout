@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public static class DriverExtensions
     {

@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Diagnostics;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public sealed class WebServer : IDisposable
     {

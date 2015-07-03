@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LucAdm.DataGen
+namespace KnockAdm.DataGen
 {
     public class EnvironmentAttribute : Attribute
     {

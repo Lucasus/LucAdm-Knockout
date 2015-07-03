@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public static class MockingExtensions
     {

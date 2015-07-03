@@ -2,7 +2,7 @@
 using StackExchange.Redis;
 using Xunit;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public class RedisTests
     {

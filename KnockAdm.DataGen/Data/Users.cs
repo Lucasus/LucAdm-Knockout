@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace LucAdm.DataGen
+namespace KnockAdm.DataGen
 {
     public class Users : Data<User>
     {
@@ -28,7 +28,7 @@ namespace LucAdm.DataGen
         {
             UserName = "Frodo",
             HashedPassword = new HashProvider().GetPasswordHash("frodo12"),
-            Email = "frodo@lucadm.com",
+            Email = "frodo@KnockAdm.com",
             Active = true
         };
 

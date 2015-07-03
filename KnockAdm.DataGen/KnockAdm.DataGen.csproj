@@ -76,9 +76,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LucAdm\LucAdm.csproj">
+    <ProjectReference Include="..\KnockAdm\KnockAdm.csproj">
       <Project>{9b065823-ccdf-406a-8f56-91e06aecf217}</Project>
-      <Name>LucAdm</Name>
+      <Name>KnockAdm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

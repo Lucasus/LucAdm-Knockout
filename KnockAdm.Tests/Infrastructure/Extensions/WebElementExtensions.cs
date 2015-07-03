@@ -2,7 +2,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public static class WebElementExtensions
     {

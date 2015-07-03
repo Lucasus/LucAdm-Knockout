@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LucAdm.DataGen
+namespace KnockAdm.DataGen
 {
     public class Data<T> where T : Entity, new()
     {

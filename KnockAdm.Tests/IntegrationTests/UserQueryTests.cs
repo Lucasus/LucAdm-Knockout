@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
-using LucAdm.DataGen;
+using KnockAdm.DataGen;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace LucAdm.Tests
+namespace KnockAdm.Tests
 {
     public class UserQueryTests : IClassFixture<UsesDbFixture>
     {

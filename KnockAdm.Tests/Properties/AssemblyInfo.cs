@@ -6,11 +6,11 @@ using Xunit;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("LucAdm.Tests")]
+[assembly: AssemblyTitle("KnockAdm.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LucAdm.Tests")]
+[assembly: AssemblyProduct("KnockAdm.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
