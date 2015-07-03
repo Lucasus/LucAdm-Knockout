@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="lucAdm" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- endinject -->
+
+</head>
+<body>
+    <header role="banner">
+        <nav role="navigation" class="navbar navbar-default" ng-controller="NavCtrl">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Luc Administration</a>
+                </div>
+                <div class="navbar-collapse collapse" collapse="navbarCollapsed">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
+                        <li class="active"><a href="/">Users</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" ng-controller="UsersCtrl" class="fluid-container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="form-inline" role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="users.searchTerm" />
+                    </div>
+                    <button type="button" class="btn btn-primary" ng-click="search()">Search</button>
+                    <button class="btn btn-success pull-right" ng-click="openModal('')">
+                        <span class=" glyphicon glyphicon-plus">
+                        </span> Add user
+                    </button>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><button type="button" class="btn-link tableBtn" ng-click="sort('userName')">User Name</button></th>
+                            <th><button type="button" class="btn-link tableBtn" ng-click="sort('email')">Email</button></th>
+                            <th>Active</th>
+                            <th style="width: 50px;"></th>
+                            <th style="width: 50px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="user-item" ng-repeat="user in users.list">
+                            <td>{{user.userName}}</td>
+                            <td>{{user.email}}</td>
+                            <td><input type="checkbox" ng-model="user.active" /></td>
+                            <td>
+                                <button type="button" class="cmdEdit btn-link tableBtn" ng-click="openModal(user.id)">Edit</button>
+                            </td>
+                            <td>
+                                <button type="button" class="cmdDelete btn-link tableBtn" ng-confirm-message="Are you sure?" ng-confirm-click="delete(user.id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <pagination class="pagination" ng-change="pageChanged(page)" total-items="users.total" ng-model="users.page"
+                                boundary-links="true" max-size="5" num-pages="users.totalPages" rotate="false">
+                    </pagination>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer role="contentinfo" class="fluid-container">
+        <div class="row col-lg-offset-3 col-lg-6 text-center">
+            <p><small>Copyright 2015 &copy; Łukasz Wiatrak. Version 0.0.2</small></p>
+        </div>
+    </footer>
+    <!-- inject:js -->
+    <script src="/lib/jquery.js"></script>
+    <script src="/lib/knockout.js"></script>
+    <!-- endinject -->
+
+</body>
+</html>

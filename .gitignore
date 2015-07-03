@@ -195,3 +195,7 @@ ModelManifest.xml
 /LucAdm.Web/dist/all.css
 /LucAdm.Web/dist/all.js
 /LucAdm.Web/angular-resource
+/KnockAdm.Web/bower_components
+/KnockAdm.Web/fonts
+/KnockAdm.Web/css
+/KnockAdm.Web/lib
