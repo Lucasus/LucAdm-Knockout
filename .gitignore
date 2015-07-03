@@ -187,3 +187,11 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+/LucAdm.Web/lib/
+/LucAdm.Web/css/bootstrap.css
+/LucAdm.Web/bower_components
+/LucAdm.Web/fonts
+/LucAdm.Web/dist/all.css
+/LucAdm.Web/dist/all.js
+/LucAdm.Web/angular-resource

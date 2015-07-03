@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B065823-CCDF-406A-8F56-91E06AECF217}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KnockAdm</RootNamespace>
+    <AssemblyName>KnockAdm</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Test\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.5.5.0.0\lib\Net40\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.0.316.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.0.414\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\AutoMapperConfig.cs" />
+    <Compile Include="Infrastructure\Extensions\MappingExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\StringExtensions.cs" />
+    <Compile Include="Infrastructure\OperationResponseExtensions.cs" />
+    <Compile Include="Infrastructure\Persistence\UnitOfWorkFactory.cs" />
+    <Compile Include="Providers\HashProvider.cs" />
+    <Compile Include="Queries\GetUsersQuery.cs" />
+    <Compile Include="Commands\UpdateUserCommand.cs" />
+    <Compile Include="Persistence\Migrations\201504041006586_UserNewPropertyActive.cs" />
+    <Compile Include="Persistence\Migrations\201504041006586_UserNewPropertyActive.Designer.cs">
+      <DependentUpon>201504041006586_UserNewPropertyActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\OperationResponseGeneric.cs" />
+    <Compile Include="Infrastructure\Persistence\FormattedDbEntityValidationException.cs" />
+    <Compile Include="Persistence\MigrationConfiguration.cs" />
+    <Compile Include="Persistence\Migrations\201503071318296_InitialCreate.cs" />
+    <Compile Include="Persistence\Migrations\201503071318296_InitialCreate.Designer.cs">
+      <DependentUpon>201503071318296_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201503071338045_UserCustomMap.cs" />
+    <Compile Include="Persistence\Migrations\201503071338045_UserCustomMap.Designer.cs">
+      <DependentUpon>201503071338045_UserCustomMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\PersistenceContext.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Infrastructure\Entity.cs" />
+    <Compile Include="Infrastructure\Persistence\Repository.cs" />
+    <Compile Include="Infrastructure\Persistence\UnitOfWork.cs" />
+    <Compile Include="Persistence\Mappings\UserMap.cs" />
+    <Compile Include="Infrastructure\OperationResponse.cs" />
+    <Compile Include="Infrastructure\Reflection\PropertyName.cs" />
+    <Compile Include="Infrastructure\Validation\Validated.cs" />
+    <Compile Include="Infrastructure\Validation\ValidationResult.cs" />
+    <Compile Include="Commands\CreateUserCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Infrastructure\Validation\IRule.cs" />
+    <Compile Include="Rules\EmailUnique.cs" />
+    <Compile Include="Rules\UserNameUnique.cs" />
+    <Compile Include="Services\UserQueryService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Infrastructure\Validation\ValidationExtensions.cs" />
+    <Compile Include="Validators\IdValidator.cs" />
+    <Compile Include="Validators\UpdateUserCommandValidator.cs" />
+    <Compile Include="Validators\CreateUserCommandValidator.cs" />
+    <Compile Include="Dto\UserItemDto.cs" />
+    <Compile Include="Dto\UsersDto.cs" />
+    <Compile Include="Dto\UserDto.cs" />
+    <Compile Include="Dto\DtoMappingProfile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Persistence\Migrations\Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Persistence\Migrations\201503071318296_InitialCreate.resx">
+      <DependentUpon>201503071318296_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201503071338045_UserCustomMap.resx">
+      <DependentUpon>201503071338045_UserCustomMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201504041006586_UserNewPropertyActive.resx">
+      <DependentUpon>201504041006586_UserNewPropertyActive.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
