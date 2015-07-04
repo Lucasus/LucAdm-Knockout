@@ -98,9 +98,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app\require.config.js" />
+    <Content Include="src\css\styles.css" />
+    <Content Include="src\index.html" />
+    <Content Include="src\pages\about-page\about.html" />
+    <Content Include="src\pages\users-page\users.html" />
+    <Content Include="src\pages\users-page\users.js" />
+    <Content Include="src\components\nav-bar\nav-bar.html" />
+    <Content Include="src\components\nav-bar\nav-bar.js" />
+    <Content Include="src\app\router.js" />
+    <Content Include="src\app\startup.js" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
-    <Content Include="Index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +131,7 @@
     </Content>
     <Content Include="package.json" />
     <Content Include="bower.json" />
+    <Content Include=".bowerrc" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -133,20 +143,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="lib\jquery.js" />
-    <Content Include="lib\knockout.js" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\KnockAdm\KnockAdm.csproj">
       <Project>{9b065823-ccdf-406a-8f56-91e06aecf217}</Project>
       <Name>KnockAdm</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\components\users-dialog\" />
+    <Folder Include="src\components\users-list\" />
+    <Folder Include="src\services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -168,7 +173,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64592</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -189,38 +194,5 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
-  <PropertyGroup>
-    <MyReleaseOutput>.\dist</MyReleaseOutput>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PipelineCollectFilesPhaseDependsOn>
-      CustomCollectFiles;
-      $(PipelineCollectFilesPhaseDependsOn);
-    </PipelineCollectFilesPhaseDependsOn>
-  </PropertyGroup>
-  <Target Name="CustomCollectFiles">
-    <Message Text="Inside of CustomCollectFiles" Importance="high" />
-    <ItemGroup>
-      <_CustomFiles Include="$(ProjectDir)dist\*" />
-      <FilesForPackagingFromProject Include="%(_CustomFiles.Identity)">
-        <DestinationRelativePath>dist\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
-      </FilesForPackagingFromProject>
-    </ItemGroup>
-  </Target>
-  <PropertyGroup Condition=" '$(Configuration)' != 'Debug' ">
-    <PreBuildEvent>
-      cd "$(ProjectDir)"
-      call npm install --save
-      call "node_modules\.bin\bower" install
-      call "node_modules\.bin\gulp" $(Configuration)
-    </PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <PreBuildEvent>
-      cd "$(ProjectDir)"
-      call "node_modules\.bin\gulp" $(Configuration)
-    </PreBuildEvent>
-  </PropertyGroup>
   <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
 </Project>

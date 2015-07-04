@@ -1,80 +1,71 @@
-/// <vs />
-// include plug-ins
-var gulp = require("gulp");
-var concat = require("gulp-concat");
-var uglify = require("gulp-uglify");
-var del = require("del");
-var inject = require("gulp-inject");
-var series = require("stream-series");
-var debug = require("gulp-debug");
-var less = require("gulp-less");
-var path = require("path");
-var newer = require("gulp-newer");
+// Node modules
+var fs = require('fs'), vm = require('vm'), merge = require('deeply'), chalk = require('chalk'), es = require('event-stream');
 
-var config = {
-    lib: [
-        "bower_components/jquery/dist/jquery.js",
-        "bower_components/knockout/dist/knockout.js"],
-    src: ["app/app.js",
-        "app/**/*.js"],
-    css: ["bower_components/bootstrap/dist/css/bootstrap.css",
-          "bower_components/bootstrap/dist/css/bootstrap.css.map"],
-    fonts: ["bower_components/bootstrap/dist/fonts/*.*"],
-    less: ["bower_components/bootstrap/less/bootstrap.less"]
-};
-// Common tasks:
-gulp.task("clean", function(){
-  del.sync(["dist/*.*"]);
-});
- 
-gulp.task("fonts", function () {
-    return gulp.src(config.fonts)
-    .pipe(newer("./fonts"))
-    .pipe(gulp.dest("./fonts"));
+// Gulp and plugins
+var gulp = require('gulp'), rjs = require('gulp-requirejs-bundler'), concat = require('gulp-concat'), clean = require('gulp-clean'),
+    replace = require('gulp-replace'), uglify = require('gulp-uglify'), htmlreplace = require('gulp-html-replace');
+
+// Config
+var requireJsRuntimeConfig = vm.runInNewContext(fs.readFileSync('src/app/require.config.js') + '; require;');
+requireJsOptimizerConfig = merge(requireJsRuntimeConfig, {
+    out: 'scripts.js',
+    baseUrl: './src',
+    name: 'app/startup',
+    paths: {
+        requireLib: 'bower_modules/requirejs/require'
+    },
+    include: [
+        'requireLib',
+        'components/nav-bar/nav-bar',
+        'components/home-page/home',
+        'text!components/about-page/about.html'
+    ],
+    insertRequire: ['app/startup'],
+    bundles: {
+        // If you want parts of the site to load on demand, remove them from the 'include' list
+        // above, and group them into bundles here.
+        // 'bundle-name': [ 'some/module', 'another/module' ],
+        // 'another-bundle-name': [ 'yet-another-module' ]
+    }
 });
 
-gulp.task("less", function () {
-    return gulp.src(config.less)
-      .pipe(newer("./css"))
-      .pipe(less({
-          paths: [path.join(__dirname, "less", "includes")]
-      }))
-      .pipe(gulp.dest("./css"));
-});
-// Debug tasks:
-gulp.task("scripts-debug", ["clean"], function () {
-    return gulp.src(config.lib)
-      .pipe(newer("./lib"))
-      .pipe(gulp.dest("./lib"));
+// Discovers all AMD dependencies, concatenates together all required .js files, minifies them
+gulp.task('js', function () {
+    return rjs(requireJsOptimizerConfig)
+        .pipe(uglify({ preserveComments: 'some' }))
+        .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task("index-debug", ["less", "scripts-debug"], function () {
-    return gulp.src("index.html")
-        .pipe(inject(series(gulp.src(["css/*.css"]), gulp.src(config.lib).pipe(gulp.dest("./lib")), gulp.src(config.src)).pipe(debug())))
-        .pipe(gulp.dest("."));
+// Concatenates CSS files, rewrites relative paths to Bootstrap fonts, copies Bootstrap fonts
+gulp.task('css', function () {
+    var bowerCss = gulp.src('src/bower_modules/components-bootstrap/css/bootstrap.min.css')
+            .pipe(replace(/url\((')?\.\.\/fonts\//g, 'url($1fonts/')),
+        appCss = gulp.src('src/css/*.css'),
+        combinedCss = es.concat(bowerCss, appCss).pipe(concat('css.css')),
+        fontFiles = gulp.src('./src/bower_modules/components-bootstrap/fonts/*', { base: './src/bower_modules/components-bootstrap/' });
+    return es.concat(combinedCss, fontFiles)
+        .pipe(gulp.dest('./dist/'));
 });
 
-// Release tasks
-gulp.task("scripts-release", ["clean"], function () {
-    return gulp.src(config.lib.concat(config.src))
-      .pipe(debug())
-      .pipe(concat("all.js"))
-      .pipe(gulp.dest("./dist"));
+// Copies index.html, replacing <script> and <link> tags to reference production URLs
+gulp.task('html', function () {
+    return gulp.src('./src/index.html')
+        .pipe(htmlreplace({
+            'css': 'css.css',
+            'js': 'scripts.js'
+        }))
+        .pipe(gulp.dest('./dist/'));
 });
 
-
-gulp.task("css-release", ["less"], function () {
-    return gulp.src(["css/*.css"])
-    .pipe(debug({title: "css-release"}))
-    .pipe(concat("all.css"))
-    .pipe(gulp.dest("./dist"));
+// Removes all files from ./dist/
+gulp.task('clean', function () {
+    return gulp.src('./dist/**/*', { read: false })
+        .pipe(clean());
 });
 
-
-gulp.task("index-release", ["css-release", "scripts-release"], function () {
-    return gulp.src("index.html")
-        .pipe(inject(gulp.src(["dist/all.css", "dist/all.js"])))
-        .pipe(gulp.dest("."));
+gulp.task('default', ['html', 'js', 'css'], function (callback) {
+    callback();
+    console.log('\nPlaced optimized files in ' + chalk.magenta('dist/\n'));
 });
 
 //Set a default tasks
