@@ -1,0 +1,45 @@
+<main role="main" class="fluid-container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="form-inline" role="form">
+                <div class="form-group">
+                    <input type="text" class="form-control" data-bind="value: searchTerm" />
+                </div>
+                <button type="button" class="btn btn-primary" data-bind="click: search">Search</button>
+                <button class="btn btn-success pull-right" ng-click="openModal('')">
+                    <span class=" glyphicon glyphicon-plus">
+                    </span> Add user
+                </button>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th><button type="button" class="btn-link tableBtn" ng-click="sort('userName')">User Name</button></th>
+                        <th><button type="button" class="btn-link tableBtn" ng-click="sort('email')">Email</button></th>
+                        <th>Active</th>
+                        <th style="width: 50px;"></th>
+                        <th style="width: 50px;"></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: users">
+                    <tr class="user-item">
+                        <td data-bind="text: userName"></td>
+                        <td data-bind="text: email"></td>
+                        <td><input type="checkbox" data-bind="checked: active" /></td>
+                        <td>
+                            <button type="button" class="cmdEdit btn-link tableBtn" ng-click="openModal(user.id)">Edit</button>
+                        </td>
+                        <td>
+                            <button type="button" class="cmdDelete btn-link tableBtn" ng-confirm-message="Are you sure?" ng-confirm-click="delete(user.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <pagination class="pagination" ng-change="pageChanged(page)" total-items="users.total" ng-model="users.page"
+                            boundary-links="true" max-size="5" num-pages="users.totalPages" rotate="false">
+                </pagination>
+            </div>
+        </div>
+    </div>
+</main>

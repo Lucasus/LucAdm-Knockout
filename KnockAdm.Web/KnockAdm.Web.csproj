@@ -99,6 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app\require.config.js" />
+    <Content Include="src\components\users-list\users-list.html" />
+    <Content Include="src\components\users-list\users-list.js" />
     <Content Include="src\css\styles.css" />
     <Content Include="src\index.html" />
     <Content Include="src\pages\about-page\about.html" />
@@ -110,6 +112,7 @@
     <Content Include="src\app\startup.js" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="src\services\usersResource.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -149,9 +152,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\components\users-dialog\" />
-    <Folder Include="src\components\users-list\" />
-    <Folder Include="src\services\" />
+    <Folder Include="src\components\user-dialog\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

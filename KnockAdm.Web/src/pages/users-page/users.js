@@ -1,13 +1,13 @@
-define(["knockout", "text!./users.html"], function(ko, usersTemplate) {
+define(["knockout", "text!./users.html"], function(ko, template) {
 
-  function HomeViewModel(route) {
+    function UsersPageViewModel(route) {
     this.message = ko.observable('Welcome to TestKO!');
   }
 
-  HomeViewModel.prototype.doSomething = function() {
+  UsersPageViewModel.prototype.doSomething = function() {
     this.message('You invoked doSomething() on the viewmodel.');
   };
 
-  return { viewModel: HomeViewModel, template: usersTemplate };
 
+  return { viewModel: UsersPageViewModel, template: template };
 });
