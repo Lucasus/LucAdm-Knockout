@@ -3,8 +3,7 @@
     function ($, Backbone, ko) {
 
         function AppViewModel() {
-            this.templateName = ko.observable('default-page');
-            this.pageViewModel = ko.observable('');
+            this.page = ko.observable({ name: 'default-page', viewModel: '' });
         }
 
         var vm = new AppViewModel();
@@ -19,22 +18,20 @@
 
             routes: {
                 "": "inbox",
-                "details" : "details"
+                "details/:id" : "details"
             },
 
             inbox: function () {
                 require(["src/pages/inbox/inbox", "text!src/pages/inbox/inbox.html"], function (Page, template) {
-                    ko.templates["inbox"] = template;
-                    vm.pageViewModel(new Page());
-                    vm.templateName("inbox");
+                    ko.templates["inbox"] || (ko.templates["inbox"] = template);
+                    vm.page({ name: "inbox", viewModel: new Page() });
                 });
             },
 
-            details: function () {
+            details: function (id) {
                 require(["src/pages/details/details", "text!src/pages/details/details.html"], function (Page, template) {
                     ko.templates["details"] = template;
-                    vm.pageViewModel(new Page());
-                    vm.templateName("details");
+                    vm.page({ name: "details", viewModel: new Page(id) });
                 });
             }
         });

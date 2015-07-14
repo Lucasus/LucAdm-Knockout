@@ -9,7 +9,21 @@
 
 <button type="button" class="btn-link tableBtn" data-bind="click: doSomething">Click</button>
 
-<a href="#details">details</a>
+<table>
+    <thead>
+        <tr><th>Task</th></tr>
+    </thead>
+    <tbody data-bind="foreach: tasks">
+        <tr>
+            <td>
+                <a data-bind="attr: { href: '#details/' + id }, text: name">
+                </a>            
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
 
 <div data-bind="template: { name: 'local-template' }"></div>
 
