@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{33BBD3DF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockAdm.Web", "KnockAdm.Web\KnockAdm.Web.csproj", "{0C2EF5D5-CE03-41C4-A48C-96F6516B6C3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnockAdm.Web2", "KnockAdm.Web2\KnockAdm.Web2.csproj", "{07E0A90B-09BD-49C0-9C17-C496A40A9817}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,12 @@ Global
 		{0C2EF5D5-CE03-41C4-A48C-96F6516B6C3C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C2EF5D5-CE03-41C4-A48C-96F6516B6C3C}.Test|Any CPU.ActiveCfg = Test|Any CPU
 		{0C2EF5D5-CE03-41C4-A48C-96F6516B6C3C}.Test|Any CPU.Build.0 = Test|Any CPU
+		{07E0A90B-09BD-49C0-9C17-C496A40A9817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E0A90B-09BD-49C0-9C17-C496A40A9817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E0A90B-09BD-49C0-9C17-C496A40A9817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E0A90B-09BD-49C0-9C17-C496A40A9817}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E0A90B-09BD-49C0-9C17-C496A40A9817}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{07E0A90B-09BD-49C0-9C17-C496A40A9817}.Test|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
