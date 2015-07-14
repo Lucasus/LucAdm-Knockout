@@ -2,13 +2,22 @@
 
     function ($, Backbone, ko) {
 
+        function getPage (pageName, params, callback) {
+            require(["src/pages/" + pageName + "/" + pageName, "text!src/pages/" + pageName + "/" + pageName + ".html"], function (Page, template) {
+                ko.templates[pageName] || (ko.templates[pageName] = template);
+                var component = { name: pageName, viewModel: new Page(params) };
+                callback(component);
+            });
+        }
+
         function AppViewModel() {
+            this.navBar = ko.observable({ text: "this is navbar" });
             this.page = ko.observable({ name: 'default-page', viewModel: '' });
         }
 
-        var vm = new AppViewModel();
+        var app = new AppViewModel();
 
-        ko.applyBindings(vm);
+        ko.applyBindings(app);
 
         var Router = Backbone.Router.extend({
 
@@ -22,18 +31,12 @@
             },
 
             inbox: function () {
-                require(["src/pages/inbox/inbox", "text!src/pages/inbox/inbox.html"], function (Page, template) {
-                    ko.templates["inbox"] || (ko.templates["inbox"] = template);
-                    vm.page({ name: "inbox", viewModel: new Page() });
-                });
+                getPage("inbox", {}, function (page) { app.page(page) });
             },
 
             details: function (id) {
-                require(["src/pages/details/details", "text!src/pages/details/details.html"], function (Page, template) {
-                    ko.templates["details"] = template;
-                    vm.page({ name: "details", viewModel: new Page(id) });
-                });
-            }
+                getPage("details", id, function (page) { app.page(page) });
+            },
         });
 
         return Router;

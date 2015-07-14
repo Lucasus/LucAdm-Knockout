@@ -1,14 +1,12 @@
-define(["knockout", "text!./details.html"], function (ko, template) {
+define(["knockout", "text!./details.html", "./comments/comments", "text!./comments/comments.html"], function (ko, template, CommentsViewModel, commentsTemplate) {
 
     function ViewModel(id) {
+        ko.templates["comments"] || (ko.templates["comments"] = commentsTemplate);
+
         this.message = ko.observable('This is task details');
+        this.comments = ko.observable({ name: "comments", viewModel: new CommentsViewModel(id) });
         this.id = id;
     }
-
-    ViewModel.prototype.doSomething = function () {
-        this.message('You invoked doSomething() on the viewmodel.');
-    };
-
 
     return ViewModel;
 });

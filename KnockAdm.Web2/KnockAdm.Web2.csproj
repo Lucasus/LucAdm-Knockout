@@ -107,6 +107,10 @@
     <Content Include="src\app\require.config.js" />
     <Content Include="src\app\router.js" />
     <Content Include="src\app\startup.js" />
+    <Content Include="src\components\nav-bar\nav-bar.html" />
+    <Content Include="src\components\nav-bar\nav-bar.js" />
+    <Content Include="src\pages\details\comments\comments.html" />
+    <Content Include="src\pages\details\comments\comments.js" />
     <Content Include="src\pages\details\details.html" />
     <Content Include="src\pages\details\details.js" />
     <Content Include="src\pages\inbox\inbox.html" />
@@ -139,9 +143,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\components\nav-bar\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
