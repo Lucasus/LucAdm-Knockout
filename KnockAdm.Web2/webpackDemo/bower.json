@@ -1,0 +1,11 @@
+{
+  "name": "KnockAdm.Web",
+  "version": "0.0.0",
+  "authors": [
+    "Lucasus <lukasz.wiatrak@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+  }
+}

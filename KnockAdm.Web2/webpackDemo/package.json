@@ -1,0 +1,12 @@
+{
+    "name": "KnockAdm.Web",
+    "version": "0.0.0",
+    "description": "Administration module reference project",
+    "devDependencies": {
+        "bower" :  "~1.4.1",
+        "gulp": "~3.8.11",
+        "webpack": "~1.10.5",
+        "gulp-webpack": "~1.5.0",
+        "path":  "~0.11.14"
+    }
+}

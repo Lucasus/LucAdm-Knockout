@@ -92,6 +92,10 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\backbone.min.map" />
+    <Content Include="webpackDemo\gulpfile.js" />
+    <Content Include="webpackDemo\src\pageA.js" />
+    <Content Include="webpackDemo\src\pageB.js" />
+    <Content Include="webpackDemo\src\shared.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom\templateEngine.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -118,6 +122,10 @@
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\underscore.min.map" />
+    <Content Include="webpackDemo\Index.html" />
+    <Content Include="webpackDemo\package.json" />
+    <Content Include="webpackDemo\bower.json" />
+    <Content Include="webpackDemo\.bowerrc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -143,7 +151,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="webpackDemo\assets\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
